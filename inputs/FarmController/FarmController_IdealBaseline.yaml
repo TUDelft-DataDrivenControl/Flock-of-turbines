@@ -1,0 +1,2 @@
+name: Ideal baseline controller
+description: Asks the turbines to follow the ideal power curve, without any consideration of wake effects or other losses. This is a theoretical baseline for comparison with other controllers.
