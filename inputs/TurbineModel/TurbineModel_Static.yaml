@@ -1,9 +1,0 @@
-name: Generic, static Actuator Disc Turbine model
-description: Follows the actuator disc theory, exhibits no dynamic behavior, so no actuator dynamics.
-u_cut_in: 3.0
-u_cut_out: 25.0
-u_rated: 10.0
-D: 126.0
-z_hub: 90.0
-actuator_yaw_rate_degps: 0.3
-
