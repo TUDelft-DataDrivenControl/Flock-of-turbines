@@ -143,7 +143,10 @@ class AtmosphericModel(OFFModule):
         Returns:
             np.ndarray: Array of shape (N,) where N is the number of positions. Each element contains the temperature at the corresponding position (K).
         """
-        return 288.15 * np.ones(xyz_m.shape[1])  # Default to 15°C in Kelvin
+        if xyz_m.ndim == 1:
+            return np.array([288.15])  # Default to 15°C in Kelvin
+        else:
+            return 288.15 * np.ones(xyz_m.shape[1])  # Default to 15°C in Kelvin
     
     @compatibility(CompatibilityLevel.FULL)
     def obs_air_density_kgpm3(self, xyz_m: np.ndarray, t_s: float) -> np.ndarray:
@@ -156,7 +159,10 @@ class AtmosphericModel(OFFModule):
         Returns:
             np.ndarray: Array of shape (N,) where N is the number of positions. Each element contains the air density at the corresponding position (kg/m³).
         """
-        return 1.225 * np.ones(xyz_m.shape[1])  # Default to standard sea level density
+        if xyz_m.ndim == 1:
+            return np.array([1.225])  # Default to standard sea level density
+        else:
+            return 1.225 * np.ones(xyz_m.shape[1])  # Default to standard sea level density
 
     @compatibility(CompatibilityLevel.FULL)
     def obs_turbulence_intensity_percent(self, xyz_m: np.ndarray, t_s: float) -> np.ndarray:
@@ -169,7 +175,10 @@ class AtmosphericModel(OFFModule):
         Returns:
             np.ndarray: Array of shape (N,) where N is the number of positions. Each element contains the turbulence intensity at the corresponding position (dimensionless).
         """
-        return np.zeros(xyz_m.shape[1])  # Default to 0% turbulence intensity
+        if xyz_m.ndim == 1:
+            return np.array([0.0])  # Default to 0% turbulence intensity
+        else:
+            return np.zeros(xyz_m.shape[1])  # Default to 0% turbulence intensity
 
     @compatibility(CompatibilityLevel.FULL)
     def obs_pressure_Pa(self, xyz_m: np.ndarray, t_s: float) -> np.ndarray:
@@ -182,7 +191,11 @@ class AtmosphericModel(OFFModule):
         Returns:
             np.ndarray: Array of shape (N,) where N is the number of positions. Each element contains the atmospheric pressure at the corresponding position (Pa).
         """
-        return 101325 * np.ones(xyz_m.shape[1])  # Default to standard sea level pressure
+        # Check if xyz_m has a second dimension; if not, return a single value
+        if xyz_m.ndim == 1:
+            return np.array([101325])  # Default to standard sea level pressure
+        else:
+            return 101325 * np.ones(xyz_m.shape[1])  # Default to standard sea level pressure
 
     @compatibility(CompatibilityLevel.FULL)
     def obs_atmospheric_boundary_layer_height_m(self, xy_m: np.ndarray, t_s: float) -> np.ndarray:
@@ -195,7 +208,10 @@ class AtmosphericModel(OFFModule):
         Returns:
             np.ndarray: Array of shape (N,) where N is the number of positions. Each element contains the atmospheric boundary layer height at the corresponding position (m).
         """
-        return 1000 * np.ones(xy_m.shape[1])  # Default to 1000 m boundary layer height
+        if xy_m.ndim == 1:
+            return np.array([1000])  # Default to 1000 m boundary layer height
+        else:
+            return 1000 * np.ones(xy_m.shape[1])  # Default to 1000 m boundary layer height
 
 
 if __name__ == '__main__':

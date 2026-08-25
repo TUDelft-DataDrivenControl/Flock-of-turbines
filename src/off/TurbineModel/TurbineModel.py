@@ -131,7 +131,7 @@ class TurbineModel(OFFModule):
             t_s (np.float64): Current simulation time in seconds.
         
         Returns:
-            np.ndarray: Current power curve (W) of the turbine type as a function of wind speed (m/s).
+            np.ndarray: Current power curve (W) of the turbine type as a function of wind speed (m/s) in the shape (n x 2) where the first column is wind speed and the second column is power output.
 
         Raises:
             NotImplementedError: Abstract Method, must be implemented in derived classes.

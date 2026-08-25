@@ -261,3 +261,4 @@ turbine:
   rotor_overhang_m: 7.07    # TODO Copied from DTU 10MW - Change!
   shaft_tilt_deg: 5         # TODO Copied from DTU 10MW - Change!
   yaw_rate_lim_degps: 0.3   # TODO Find true value
+  eta_g: 1.0 # Efficiency of the generator
